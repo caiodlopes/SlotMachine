@@ -97,4 +97,4 @@ function handleCadences(rounds) {
     return slotMachineCadences;
 }
 console.log('CADENCES: ', handleCadences(gameRounds));
-exports.SlotMachineCad = { handleCadences: handleCadences, gameRounds: gameRounds };
+exports.SlotMachineCad = { handleCadences: handleCadences, gameRounds: gameRounds, slotMachineCadences: slotMachineCadences };
