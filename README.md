@@ -1,2 +1,2 @@
 # SlotMachine
-Two implementations of diferent parts os a slotMachine
+Two implementations of diferent parts of a slotMachine
