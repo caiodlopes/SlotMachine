@@ -1,7 +1,35 @@
 import { SlotMachineCad } from './SlotMachineCadence';
 
-const expectedGameRounds = { roundOne: [ 0, 0.25, 2.25, 4.25, 4.5 ], roundTwo: [ 0, 2, 4, 6, 8 ], roundThree: [ 0, 0.25, 0.5, 0.75, 1 ] };
+const expectedGameRounds1 = { roundOne: [ 0, 0.25, 2.25, 4.25, 4.5 ], roundTwo: [ 0, 2, 4, 6, 8 ], roundThree: [ 0, 0.25, 0.5, 0.75, 1 ] };
+
+const expectedGameRounds2 = { roundOne: [ 0, 2, 3, 4, 5, 6 ], roundTwo: [ 0, 1, 2, 3, 4, 5 ], roundThree: [ 0, 1, 2, 3, 4, 5 ] };
+
+const roundSymbols1 = {
+  roundOne: {
+    specialSymbols: [
+      { column: 0, row: 2 },
+      { column: 1, row: 3 },
+      { column: 3, row: 4 },
+    ],
+  },
+  roundTwo: {
+    specialSymbols: [
+      { column: 0, row: 2 },
+      { column: 0, row: 3 },
+    ],
+  },
+  roundThree: {
+    specialSymbols: [
+      { column: 4, row: 2 },
+      { column: 4, row: 3 },
+    ],
+  },
+}
+;
 
 test('Its match!', () => {
-  expect(SlotMachineCad.handleCadences(SlotMachineCad.gameRounds)).toEqual(expectedGameRounds);
+  expect(SlotMachineCad.handleCadences(roundSymbols1, 5, 2, 3, 2, 0.25)).toEqual(expectedGameRounds1);
+});
+test('Its match!', () => {
+  expect(SlotMachineCad.handleCadences(roundSymbols1, 6, 1, 2, 2, 1)).toEqual(expectedGameRounds2);
 });

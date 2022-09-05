@@ -37,7 +37,7 @@ function call(lines: number[]): WinningCombinationsResult {
       if (currentNumber === -1) {
         //sets x to currentNumber
         currentNumber = x;
-        //get nextIndexes, formed by zeros, and turn it in currentIndexes
+        //get nextIndexes, object (not reference), formed by zeros, and add it to currentIndexes. Because if it is the second sequence, we must add the possible zeros to it.
         currentIndexes = Object.assign([], nextIndexes);
         //zeros nextIndexes
         nextIndexes = [];
@@ -45,7 +45,7 @@ function call(lines: number[]): WinningCombinationsResult {
         currentIndexes.push(i);
         return;
       }
-      //if currentIndexes.lenght is bigger or equal 3, it means we complete the sequence and can add it to result
+      //If lenght is bigger or equal 3, it means we complete the sequence and can add it to result. Remember we alredy verified if x>9, x===0 and x!=currentNumber, that means we have a sequence and must push currentNumber and currentIndexes, before start a new sequence)
       if (currentIndexes.length >= 3) {
         result.push([currentNumber, Object.assign([], currentIndexes)]);
       }
@@ -68,7 +68,6 @@ function call(lines: number[]): WinningCombinationsResult {
   if (currentIndexes.length >= 3) {
     result.push([currentNumber, Object.assign([], currentIndexes)]);
   }
-  console.log(result);
   return result;
 }
 
